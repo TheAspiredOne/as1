@@ -7,6 +7,7 @@ import java.util.Date;
  * Created by Avery on 10/2/2016.
  */
 public class Habit {
+    //define and initialize class attributes
     private String habitName;
     private Date creationDate;
     private String description;
@@ -20,7 +21,7 @@ public class Habit {
     private int timeCompleted;
     private ArrayList<Date> datesCompleted;
 
-
+    //coonstructor for habits class
     public Habit(String name, String descrption, boolean mon, boolean tues, boolean wed, boolean thur, boolean fri, boolean sat, boolean sun){
         this.habitName = name;
         this.description = descrption;
@@ -36,12 +37,15 @@ public class Habit {
         this.timeCompleted = 0;
     }
 
+    //returns name of habit
     public String getName() {
         return habitName;
     }
-
+    
+    //returns description of habit
     public String getDescription(){return description;}
 
+    //specifies function to increment habit counter and add a new record of completion
     public void performHabit(){
         this.timeCompleted += 1;
         Date date = new Date();
@@ -49,14 +53,17 @@ public class Habit {
         this.datesCompleted.add(date);
     }
 
+    //returns the number of total times habit is completed
     public int getCompletedCount(){
         return timeCompleted;
     }
 
+    //gets a list of dates which the habit was completed
     public ArrayList<Date> getPastCompletions(){
         return datesCompleted;
     }
 
+    //adds boolean values corresponding to days in which habits are to be completed
     public ArrayList<Boolean> getDatesToBeCompleted() {
         ArrayList<Boolean> dates = new ArrayList<Boolean>();
         dates.add(monday);
@@ -69,6 +76,7 @@ public class Habit {
         return dates;
     }
 
+    //returns the creation date
     public Date getFirstDate() {
         return creationDate;
     }
