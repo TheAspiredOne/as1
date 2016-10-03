@@ -11,7 +11,7 @@ import android.widget.Toast;
  * Created by Avery on 10/2/2016.
  */
 public class AddHabitActivity extends AppCompatActivity {
-
+    //add attributes of activity
     private EditText habitName;
     private EditText habitDescription;
     private CheckBox mondayCheckBox;
@@ -22,6 +22,7 @@ public class AddHabitActivity extends AppCompatActivity {
     private CheckBox saturdayCheckBox;
     private CheckBox sundayCheckBox;
 
+    //using booleans to hold the dates when habits should be completed
     private boolean mon = false;
     private boolean tues = false;
     private boolean wed = false;
@@ -29,7 +30,8 @@ public class AddHabitActivity extends AppCompatActivity {
     private boolean fri = false;
     private boolean sat = false;
     private boolean sun = false;
-
+    
+    //specify onCreate function
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,8 @@ public class AddHabitActivity extends AppCompatActivity {
         saturdayCheckBox = (CheckBox) findViewById(R.id.checkBoxSaturday);
         sundayCheckBox = (CheckBox) findViewById(R.id.checkBoxSunday);
     }
-
+    
+    //parses habit attributes to be passed into a Habit List
     public void addHabitOption(View v){
         if (v.getId() == R.id.donButton) {
             Toast.makeText(this,"adding new habit", Toast.LENGTH_SHORT).show();
@@ -73,7 +76,7 @@ public class AddHabitActivity extends AppCompatActivity {
                 sun = true;
             }
 
-
+            //creating new habit that will be added to instance of HabitList
             Habit newHabit = new Habit(nameHabit,descrp, mon, tues, wed,thur, fri, sat, sun);
             MainActivity.myNewHabitsList.addHabit(newHabit);
             //habitTrackerActivity.myHabitsList.add(newHabit);
