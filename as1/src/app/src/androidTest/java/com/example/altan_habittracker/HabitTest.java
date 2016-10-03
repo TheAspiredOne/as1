@@ -11,6 +11,7 @@ public class HabitTest extends ActivityInstrumentationTestCase2<MainActivity> {
         super(MainActivity.class);
     }
 
+    //testing habit addition
     public void testAddHabit(){
         String habitName = "wash the dishes";
         String description = "I want to wash dishes more often";
