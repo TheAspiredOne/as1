@@ -9,6 +9,14 @@ video link:
 https://www.youtube.com/watch?v=HuE3_VhNXEg&feature=youtu.be
 
 
+gradle build : 2.1.3
+build tools version 24.0.2
+compiled SDK version: 24
+minSdkVersion 15
+targetSdkVersion 24
+versionCode 1
+
+
 
 Instructions for using the code:
 *open as1 with android studios and run app
