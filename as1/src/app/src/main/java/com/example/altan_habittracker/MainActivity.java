@@ -8,18 +8,24 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-//import com.google.gson.Gson;
+//import com.google.gson.Gson; cannot get gson to work
 //import com.google.gson.reflect.TypeToken;
 
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+    //creates a new habit list to store tracked habits
     public static HabitList myNewHabitsList;
+    
+    //keep a track of the old habits in a habitlist that we cna update using an adapter
     private ListView oldHabitList;
+    
+    
     private static ArrayAdapter<Habit> adapter;
     private static final String FILENAME = "file.sav";
 
+    //specify onCreate function
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         oldHabitList = (ListView)findViewById(R.id.oldHabitList);
 
 
-
-
     }
 
+    
+    //create intent on add habit button that will take us to the add habit activity
     public void AddHabitActivity(View v){
         if (v.getId() == R.id.addHabitButton) {
             Toast.makeText(getBaseContext(), "add habit selected", Toast.LENGTH_SHORT).show();
@@ -52,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
-
+    //create listview to store list of habits and show them on our main activity
     public void createHabitListView(){
         adapter = new ArrayAdapter<Habit>(this,R.layout.list_habits, (List<Habit>) myNewHabitsList);
         oldHabitList.setAdapter(adapter);
@@ -61,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getBaseContext(), "completed", Toast.LENGTH_SHORT).show();
-
+                
+                //if habit is clicked on in the mainactivity, performs it by incrementing count and adding the date it was completed.
                 Habit h = (Habit)oldHabitList.getItemAtPosition(position);
                 h.performHabit();
                 adapter.notifyDataSetChanged();
@@ -72,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+//GSON doesn't work!!
 //    private void loadFromFile() {
 //        try {
 //            FileInputStream fis = openFileInput(FILENAME);
