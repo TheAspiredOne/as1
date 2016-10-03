@@ -11,6 +11,7 @@ public class HabitListTest extends ActivityInstrumentationTestCase2<MainActivity
         super(MainActivity.class);
     }
 
+    //testing habit addition to habit list
     public void addHabitToHabitListTest(){
         HabitList newHabitList = new HabitList();
         String habitName = "wash the dishes";
